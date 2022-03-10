@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Este é o titulo</title>
+</head>
+<body>
+    Nome:  <input id="nome" type="text" name="nome" value="">
+      <br><br>
+    Email: <input id="email" type="email" name="email" value="">
+      <br><br>
+    Endereço:  <input id="endereco" type="text" name="endereco" value="">
+      <br><br>
+    WhatsApp: <input id="fone" type="text" name="fone" value="">
+      <br><br>
+      <button onclick = Escrever()>Enviar</button>
+      <p id="usuario">Usuarios:</p>
+      <br><br>
+      <p id="cadastro">Cadastro:</p>
+      <br><br>
+</body>
+<script>
+    let totalCadastros = 0;
+    let nomes = [];
+    let emails =[];
+    let enderecos = [];
+    let fones =[];
+    function Escrever(){
+        
+        let nome = document.getElementById("nome").value;
+        let email = document.getElementById("email").value;
+        let endereco = document.getElementById("endereco").value;
+        let fone = document.getElementById("fone").value;
+
+        nomes[totalCadastros]= nome;
+        emails[totalCadastros]= email;
+        enderecos[totalCadastros]= endereco;
+        fones[totalCadastros]= fone;
+        document.getElementById("usuario").innerHTML +="<p onclick= 'exibir("+totalCadastros+")'>"+ nome;
+        
+        totalCadastros ++; 
+        limpaCampos();
+    }
+    function exibir(indice){
+    
+        document.getElementById("cadastro").innerHTML = "Nome:" + nomes[indice] + "<br>Email:" + emails[indice] + "<br>Endereço:" + enderecos[indice] + "<br>WhatsApp:" + fones[indice];
+        
+    }
+    function limpaCampos(){
+        document.getElementById("nome").value= null
+        document.getElementById("email").value= null
+        document.getElementById("endereco").value= null
+        document.getElementById("fone").value= null
+    }
+</script>
+</html>
